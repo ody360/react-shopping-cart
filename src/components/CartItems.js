@@ -1,11 +1,8 @@
 import React from 'react'
 import CartItemComponent from './CartItemComponent'
 
-const CartItems = ({cartItemList}) => {
-    console.log('CARTITEMLIST:', cartItemList)
-    
+const CartItems = ({cartItemList, total}) => {    
     const listItem = cartItemList.map((product) => <CartItemComponent key={product.id} product={product}/>)
-    console.log(listItem)
     return(
         <div className="container">
             <h1>Cart Items</h1>
@@ -19,6 +16,7 @@ const CartItems = ({cartItemList}) => {
                 </div>
                 {listItem}
             </div>
+            <p>Total: ${Number(total/100).toFixed(2)}</p>
         </div>
     )
 }

@@ -4,35 +4,21 @@ import React, { Component } from 'react'
 class AddItems extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-           
+        this.state = {          
             quantity:''
         }
-       // console.log('ADDITEMS:' ,props)
     }
 
     onChange = (event) => {
-       // console.log(event.target.value, event.target.name)
         this.setState({
             [event.target.name]: event.target.value
-
-
         })
-        console.log(this.state)
     }
 
     onSubmit = (event) => {
         event.preventDefault()
 
         this.props.addItem(this.state)
-            // {
-            //     product: {
-            //         id: this.state.id,
-            //         name: this.state.name,
-            //         priceInCents: this.state.priceInCents,
-            //     },
-            //     quantity: this.state.quantity
-            // }
         this.setState({
             quantity :''
         })

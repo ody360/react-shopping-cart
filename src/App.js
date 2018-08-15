@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import CartHeader from './components/CartHeader';
 import CartFooter from './components/CartFooter';
@@ -38,19 +38,27 @@ addItem = ({product, quantity}) => {
   this.setState({
     cartItemList: [...this.state.cartItemList, newItem]
   })
+  
 }
 
+computeTotal = () => {
+    let sums = 0
+    this.state.cartItemList.forEach((p) => {
+    sums += p.product.priceInCents * Number(p.quantity)
+  })
+  return sums
+}
 
   render() {
-
+    this.computeTotal()
     return (
       <div className="App">
         <CartHeader />
-         <CartItems cartItemList={this.state.cartItemList}/>
+         <CartItems cartItemList={this.state.cartItemList} total={this.computeTotal()}/>
          <AddItems products={this.state.products} addItem={this.addItem}/>
         <CartFooter copyright='2016'/>
       </div>
-    );
+    )
   }
 }
 
