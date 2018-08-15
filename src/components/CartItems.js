@@ -2,7 +2,7 @@ import React from 'react'
 import CartItemComponent from './CartItemComponent'
 
 const CartItems = ({cartItemList}) => {
-    
+    console.log('CARTITEMLIST:', cartItemList)
     
     const listItem = cartItemList.map((product) => <CartItemComponent key={product.id} product={product}/>)
     console.log(listItem)
